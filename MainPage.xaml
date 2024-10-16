@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AWEMobileApp.MainPage"
+             BackgroundColor="Black">
+
+    <ContentPage.Content>
+        <Grid Padding="20" RowSpacing="10" ColumnSpacing="10">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                <Label Text="Morning," FontSize="24" TextColor="White" VerticalOptions="Center"/>
+                <Label Text="Alax" FontSize="24" FontAttributes="Bold" TextColor="White" VerticalOptions="Center"/>
+            </StackLayout>
+
+            <Grid Grid.Row="1" ColumnSpacing="10" RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="260"/>
+                    <RowDefinition Height="180"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="180"/>
+                    <ColumnDefinition Width="180"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Welcome Card -->
+                <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#222124" CornerRadius="30" Padding="15">
+                    <Grid ColumnDefinitions="120,25" Margin="-5,-5,-5,0">
+                        <Image Source="avatar.png" 
+                               WidthRequest="50" 
+                               HeightRequest="50"
+                               VerticalOptions="Start"
+                               HorizontalOptions="Start"
+                               Grid.Column="0"/>
+                        <Button ImageSource="power.png" Grid.Column="1" VerticalOptions="Start" WidthRequest="50" HeightRequest="50" CornerRadius="50" BackgroundColor="#313131" Pressed="Button_Pressed" Released="Button_Released" /> 
+                        <Label Text="Welcome to Alax Room"
+                               TextColor="White"
+                               FontSize="20"
+                               VerticalOptions="End"
+                               HorizontalOptions="End"
+                               LineBreakMode="WordWrap"
+                               Grid.Column="0"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Security Card -->
+                <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#b1ff0a" CornerRadius="30" Padding="15">
+                    <StackLayout>
+                        <ImageButton Source="lock.png" 
+                                     WidthRequest="50" 
+                                     HeightRequest="50"
+                                     VerticalOptions="Start"
+                                     HorizontalOptions="Start"
+                                     Aspect="AspectFit"/>
+                        <Label Text="Security" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Text="24/7 System On" TextColor="Black" FontSize="Small"/>
+                        <Switch HorizontalOptions="End"
+                            Margin="0,10,18,0"
+                            ThumbColor="White"
+                            Scale="2"
+                            IsToggled="true"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- Air Conditioner Card -->
+                <Frame Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="#ffed48" CornerRadius="30" Padding="20">
+                    <Grid ColumnDefinitions="250,Auto">
+                        <Label Text="Air Conditioner" 
+                               FontSize="25" 
+                               TextColor="Black" 
+                               VerticalOptions="Start" 
+                               HorizontalOptions="Start"
+                               Grid.Column="0"/>
+                        <Label Text="{Binding Temperature, StringFormat='{0}°C'}" 
+                               FontSize="62" 
+                               FontAttributes="Bold" 
+                               TextColor="Black" 
+                               VerticalOptions="Center" 
+                               HorizontalOptions="Start"
+                               HorizontalTextAlignment="Start"
+                               Margin="0,-50,0,0"
+                               Grid.Column="0"/>
+                        <ImageButton Source="arrow_circle_up.png" 
+                                     WidthRequest="70" 
+                                     HeightRequest="70" 
+                                     VerticalOptions="Start" 
+                                     HorizontalOptions="End"
+                                     Grid.Column="1" 
+                                     Margin="5, -4, 5, 0"
+                                     Aspect="AspectFit"
+                                     Pressed="ArrowUp_Pressed"/>
+                        <ImageButton Source="arrow_circle_down.png" 
+                                     WidthRequest="70" 
+                                     HeightRequest="70" 
+                                     VerticalOptions="Center" 
+                                     HorizontalOptions="End"
+                                     Grid.Column="1" 
+                                     Margin="5, -20, 5, 0"
+                                     Aspect="AspectFit"
+                                     Pressed="ArrowDown_Pressed"/>
+                        <Switch HorizontalOptions="Start"
+                                VerticalOptions="End"
+                                Margin="20,-5,0,0"
+                                ThumbColor="White"
+                                Scale="2"/>
+                    </Grid>
+                </Frame>
+
+                <!-- Room Lights Card -->
+                <Frame Grid.Row="2" Grid.Column="0" BackgroundColor="#222124" CornerRadius="30" Padding="15">
+                    <StackLayout Margin="-5,-5,-5,-5">
+                        <Button HorizontalOptions="Start" ImageSource="lightbulb.png" WidthRequest="55" HeightRequest="55" CornerRadius="50" BackgroundColor="#313131" Pressed="Button_Pressed" Released="Button_Released"/>
+                        <Label Text="Room Lights" TextColor="White" FontSize="Medium"/>
+                        <Label Text="OFF - 30 Min" TextColor="White" FontSize="Small"/>
+                        <Switch HorizontalOptions="End"
+                            Margin="0,10,18,0"
+                            ThumbColor="White"
+                            Scale="2"
+                            IsToggled="true"/>
+                    </StackLayout>
+                </Frame>
+
+                <!-- WiFi and Other Icons Card -->
+                <Frame Grid.Row="2" Grid.Column="1" BackgroundColor="#222124" CornerRadius="30" Padding="15">
+                    <Grid Margin="-10,-10,-10,-10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button ImageSource="drop.png" Grid.Row="0" Grid.Column="0" WidthRequest="75" HeightRequest="75" CornerRadius="50" BackgroundColor="#313131" Pressed="Button_Pressed" Released="Button_Released"/>
+                        <Button ImageSource="wif.png" Grid.Row="0" Grid.Column="1" WidthRequest="75" HeightRequest="75" CornerRadius="50" BackgroundColor="#313131" Pressed="Button_Pressed" Released="Button_Released"/>
+                        <Button ImageSource="videocam.png" Grid.Row="1" Grid.Column="0" WidthRequest="75" HeightRequest="75" CornerRadius="50" BackgroundColor="#313131" Pressed="Button_Pressed" Released="Button_Released"/>
+                        <Button ImageSource="pets.png" Grid.Row="1" Grid.Column="1" WidthRequest="75" HeightRequest="75" CornerRadius="50" BackgroundColor="#313131" Pressed="Button_Pressed" Released="Button_Released"/>
+                    </Grid>
+                </Frame>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
